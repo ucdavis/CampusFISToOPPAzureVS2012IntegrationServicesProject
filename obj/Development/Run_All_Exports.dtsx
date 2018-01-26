@@ -1,0 +1,1005 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/28/2014 11:41:58 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="CAES-FXDG9W1"
+  DTS:CreatorName="AESDEAN\taylor"
+  DTS:DTSID="{01FC3D58-A28F-4598-8675-EA588CB7C2C0}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.6020.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Run_All_Exports"
+  DTS:PackageType="5"
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{A424B7E8-903E-469E-896A-C68F156B62A4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OPP]"
+      DTS:CreationName="ADO.NET:SQL"
+      DTS:DTSID="{7A226DE9-45A6-4C27-9EAF-A776BA6785E9}"
+      DTS:ObjectName="OPP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=qb5fm1u0eb.database.windows.net;User ID=opp;Initial Catalog=PrePurchasing;Persist Security Info=True;Connect Timeout=30;Application Name=SSIS-Run_All_Exports-{7A226DE9-45A6-4C27-9EAF-A776BA6785E9}OPP;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAATXicqTPLEu3EPkDa3jL2AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACV0tEii5/OI0KJ6qjyaX90AAAAAASAAACgAAAAEAAAAJcMMPH6Pc6+E1V6qyT+hNc4AAAAEI7Ezd4cub88l4eUCW11LMAM+AnQb7+HkOcRTwhQ8uqWfmGsTLaW7GagztmEZOySjGAX6WrhyFoUAAAA7ftwd11eXZnSrfqPhlSlUCEZQ8I</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PROD_AZURE_PREPURCHASING]"
+      DTS:CreationName="ADO.NET:SQL"
+      DTS:DTSID="{834FB060-B7EB-44D9-9103-C669C41167FA}"
+      DTS:ObjectName="PROD_AZURE_PREPURCHASING">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=qb5fm1u0eb.database.windows.net;User ID=opp@qb5fm1u0eb.database.windows.net;Persist Security Info=True;Connect Timeout=30;Application Name=SSIS-Run_All_Exports-{834FB060-B7EB-44D9-9103-C669C41167FA}PROD_AZURE_PREPURCHASING;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAATXicqTPLEu3EPkDa3jL2AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACdDz4aOE4hUTO890dFa+BIAAAAAASAAACgAAAAEAAAANZC6uqXV+gekWoP6s7mHQI4AAAA5EyO44KXg41FKqIHxgMPDLC9IxOjrbUJeWFOj4lcS8UYZDOQeDYYkGpg7G/ELqxJ8QMvxBlBu7QUAAAAYYxx8EOLdQr+0Hmfeu8/1cefJZc</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute Merge UnitOfMeasures from UnitOfMeasures_sync"
+      DTS:CreationName="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute T-SQL Statement Task"
+      DTS:DTSID="{DF8F17F8-8027-415A-8A0F-5F4F1F0F55CC}"
+      DTS:ExecutableType="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Merge UnitOfMeasures from UnitOfMeasures_sync"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7A226DE9-45A6-4C27-9EAF-A776BA6785E9}"
+          SQLTask:SqlStatementSource="DECLARE @return_value int&#xA;&#xA;EXECUTE @return_value = [dbo].[usp_Update_UnitOfMeasures_From_UnitOfMeasures_sync]&#xA;&#xA;SELECT @return_value AS [Return Value]"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute Merge vAccounts from vAccount_sync"
+      DTS:CreationName="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute T-SQL Statement Task"
+      DTS:DTSID="{10b3fc5e-68d0-476d-b17c-751c66bc55cf}"
+      DTS:ExecutableType="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Merge vAccounts from vAccount_sync"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7A226DE9-45A6-4C27-9EAF-A776BA6785E9}"
+          SQLTask:SqlStatementSource="DECLARE @return_value int&#xA;&#xA;EXECUTE @return_value = [dbo].[usp_Update_vAccounts_From_vAccountsSync]&#xA;&#xA;SELECT @return_value AS [Return Value]"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute Merge vBuildings from vBuildings_sync"
+      DTS:CreationName="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute T-SQL Statement Task"
+      DTS:DTSID="{ee7b0f1c-fba6-4f30-ada5-6f410a0a595e}"
+      DTS:ExecutableType="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Merge vBuildings from vBuildings_sync"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7A226DE9-45A6-4C27-9EAF-A776BA6785E9}"
+          SQLTask:SqlStatementSource="DECLARE @return_value int&#xA;&#xA;EXECUTE @return_value = [dbo].[usp_Update_vBuildings_From_vBuildingsSync]&#xA;&#xA;SELECT @return_value AS [Return Value]"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute Merge vCommodities from vCommodities_sync"
+      DTS:CreationName="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute T-SQL Statement Task"
+      DTS:DTSID="{27cd8590-0901-4ea0-a133-562026ccc11b}"
+      DTS:ExecutableType="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Merge vCommodities from vCommodities_sync"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7A226DE9-45A6-4C27-9EAF-A776BA6785E9}"
+          SQLTask:SqlStatementSource="DECLARE @return_value int&#xA;&#xA;EXECUTE @return_value = [dbo].[usp_Update_vCommodities_From_vCommoditiesSync]&#xA;&#xA;SELECT @return_value AS [Return Value]"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute Merge vOrganizations from vOrganizations_sync"
+      DTS:CreationName="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute T-SQL Statement Task"
+      DTS:DTSID="{88c5a4e5-193e-42a7-af43-43268e0b0530}"
+      DTS:ExecutableType="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Merge vOrganizations from vOrganizations_sync"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7A226DE9-45A6-4C27-9EAF-A776BA6785E9}"
+          SQLTask:SqlStatementSource="DECLARE @return_value int&#xA;&#xA;EXECUTE @return_value = [dbo].[usp_Update_vOrganizations_From_vOrganizationsSync]&#xA;&#xA;SELECT @return_value AS [Return Value]"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute Merge vSubAccounts from vSubAccount_sync"
+      DTS:CreationName="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute T-SQL Statement Task"
+      DTS:DTSID="{a9134144-6cce-4730-bdd0-fc20ae06a2e0}"
+      DTS:ExecutableType="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Merge vSubAccounts from vSubAccount_sync"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7A226DE9-45A6-4C27-9EAF-A776BA6785E9}"
+          SQLTask:SqlStatementSource="DECLARE @return_value int&#xA;&#xA;EXECUTE @return_value = [dbo].[usp_Update_vSubAccounts_From_vSubAccountsSync]&#xA;&#xA;SELECT @return_value AS [Return Value]"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute Merge vVendorAddresses from vVendorAddresses_sync"
+      DTS:CreationName="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute T-SQL Statement Task"
+      DTS:DTSID="{e67f5dbd-70eb-4f44-8192-9162f0ff270f}"
+      DTS:ExecutableType="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Merge vVendorAddresses from vVendorAddresses_sync"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7A226DE9-45A6-4C27-9EAF-A776BA6785E9}"
+          SQLTask:SqlStatementSource="DECLARE @return_value int&#xA;&#xA;EXECUTE @return_value = [dbo].[usp_Update_vVendorAddresses_From_vVendorAddressesSync]&#xA;&#xA;SELECT @return_value AS [Return Value]"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute Merge vVendors from vVendors_sync"
+      DTS:CreationName="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute T-SQL Statement Task"
+      DTS:DTSID="{6a4854e7-76ed-4967-ac6d-b6f1593e3c5d}"
+      DTS:ExecutableType="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Merge vVendors from vVendors_sync"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7A226DE9-45A6-4C27-9EAF-A776BA6785E9}"
+          SQLTask:SqlStatementSource="DECLARE @return_value int&#xA;&#xA;EXECUTE @return_value = [dbo].[usp_Update_vVendors_From_vVendorsSync]&#xA;&#xA;SELECT @return_value AS [Return Value]"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Run Export UnitOfMeasures"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{E6CC2ECE-58B7-4318-97BA-75895DBEBCB2}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Run Export UnitOfMeasures"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Export_UnitOfMeasures_sync.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Run Export vAccounts"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{2682C976-8A2F-462B-BB3D-85994D7C53ED}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Run Export vAccounts"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Export_vAccounts_sync.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Run Export vBuildings"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{EE971C1D-9B69-4D36-83FD-0FBCE5D29EE1}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Run Export vBuildings"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Export_vBuildings_sync.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Run Export vCommodities"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{AD890419-5919-47B1-A3EC-BBE8038E0505}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Run Export vCommodities"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Export_vCommodities_sync.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Run Export vOrganizations"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{F1B4F0BD-55CB-490E-8B5A-F52CC66C013C}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Run Export vOrganizations"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Export_vOrganizations_sync.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Run Export vSubAccounts"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{CEE93185-538D-4E43-8925-2E7F512B8693}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Run Export vSubAccounts"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Export_vSubAccounts_sync.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Run Export vVendorAddresses"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{88ded132-9573-49d1-802d-6ae4db113cc8}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Run Export vVendorAddresses"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Export_vVendorAddresses_sync.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Run Export vVendors"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{384B19FE-2D7E-47E7-AA9B-883C514B318A}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Run Export vVendors"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Export_vVendors_sync.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{79AA92CD-3C33-4A6B-9730-41C0F6B3E46B}"
+      DTS:From="Package\Run Export UnitOfMeasures"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Execute Merge UnitOfMeasures from UnitOfMeasures_sync" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{2A4AB22E-6739-485D-990E-18243854E393}"
+      DTS:From="Package\Run Export vBuildings"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Execute Merge vBuildings from vBuildings_sync" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{DE893698-3390-4848-856C-60F72AD8E582}"
+      DTS:From="Package\Run Export vSubAccounts"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\Execute Merge vSubAccounts from vSubAccount_sync" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{8655E57B-A61D-4E0E-83BE-1F675E5B0518}"
+      DTS:From="Package\Run Export vOrganizations"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\Execute Merge vOrganizations from vOrganizations_sync" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{E56BA968-C9AB-446C-8E5E-87284A484CDA}"
+      DTS:From="Package\Execute Merge vOrganizations from vOrganizations_sync"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12"
+      DTS:To="Package\Run Export vVendors" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 13]"
+      DTS:CreationName=""
+      DTS:DTSID="{E53D5524-5EBE-49B3-AFD6-8FBBFE9B0F5B}"
+      DTS:From="Package\Execute Merge vVendors from vVendors_sync"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 13"
+      DTS:To="Package\Run Export vVendorAddresses" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 14]"
+      DTS:CreationName=""
+      DTS:DTSID="{F59F728B-5DF3-4809-B39B-161C95C6C43C}"
+      DTS:From="Package\Run Export vVendorAddresses"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 14"
+      DTS:To="Package\Execute Merge vVendorAddresses from vVendorAddresses_sync" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{0A760FDF-87B3-4D96-9C28-5FD07369FE6C}"
+      DTS:From="Package\Run Export vCommodities"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Execute Merge vCommodities from vCommodities_sync" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{7582AA85-DA8B-4D7E-A4B5-47F409D69B7A}"
+      DTS:From="Package\Execute Merge vCommodities from vCommodities_sync"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Run Export vAccounts" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{77D16AF6-0385-4554-A37D-4299F91D9EFA}"
+      DTS:From="Package\Execute Merge vAccounts from vAccount_sync"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Run Export vSubAccounts" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{E95CB6E7-4DED-4257-AD1D-D95F06E87A9A}"
+      DTS:From="Package\Execute Merge vSubAccounts from vSubAccount_sync"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Run Export vOrganizations" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{286B908C-4FF1-4FA3-9C73-D2AEA7A49BCC}"
+      DTS:From="Package\Run Export vVendors"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Execute Merge vVendors from vVendors_sync" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{E9804BE6-E3E9-485B-A5BD-D4AFB062C174}"
+      DTS:From="Package\Execute Merge UnitOfMeasures from UnitOfMeasures_sync"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Run Export vBuildings" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{A546EC88-9359-4E0B-958B-99CBE061F0E9}"
+      DTS:From="Package\Execute Merge vBuildings from vBuildings_sync"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Run Export vCommodities" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{63BB6AF6-4D6D-4D32-AFF8-321FA7E3AE8F}"
+      DTS:From="Package\Run Export vAccounts"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Execute Merge vAccounts from vAccount_sync" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="358,42"
+          Id="Package\Execute Merge UnitOfMeasures from UnitOfMeasures_sync"
+          TopLeft="446.213245539654,51.1190710319384" />
+        <NodeLayout
+          Size="300,42"
+          Id="Package\Execute Merge vAccounts from vAccount_sync"
+          TopLeft="457.067501705683,324.698527863052" />
+        <NodeLayout
+          Size="304,42"
+          Id="Package\Execute Merge vBuildings from vBuildings_sync"
+          TopLeft="486.514756704223,139.091767018056" />
+        <NodeLayout
+          Size="341,42"
+          Id="Package\Execute Merge vCommodities from vCommodities_sync"
+          TopLeft="462.153586458633,217.463573931155" />
+        <NodeLayout
+          Size="348,42"
+          Id="Package\Execute Merge vOrganizations from vOrganizations_sync"
+          TopLeft="470.096800574173,531.941215520035" />
+        <NodeLayout
+          Size="335,42"
+          Id="Package\Execute Merge vSubAccounts from vSubAccount_sync"
+          TopLeft="440.970207364724,433.435625521344" />
+        <NodeLayout
+          Size="382,42"
+          Id="Package\Execute Merge vVendorAddresses from vVendorAddresses_sync"
+          TopLeft="476.575010729583,717.802658680391" />
+        <NodeLayout
+          Size="296,42"
+          Id="Package\Execute Merge vVendors from vVendors_sync"
+          TopLeft="474.489064676553,615.614333950474" />
+        <NodeLayout
+          Size="211,69"
+          Id="Package\Run Export UnitOfMeasures"
+          TopLeft="168.202661692163,38.3465900220374" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Run Export vAccounts"
+          TopLeft="195.859719091423,320.708033395065" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Run Export vBuildings"
+          TopLeft="177.730412967863,137.772016519914" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Run Export vCommodities"
+          TopLeft="182.829116445653,218.763776008813" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Run Export vOrganizations"
+          TopLeft="200.660397605603,520.822688700323" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Run Export vSubAccounts"
+          TopLeft="198.420594007783,417.79210459782" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\Run Export vVendorAddresses"
+          TopLeft="208.313567485383,718.364542220461" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Run Export vVendors"
+          TopLeft="226.858735746973,618.379405917222" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="379.202661692163,72.4828305269884">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67.010583847491,0"
+              Start="0,0"
+              End="59.510583847491,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="59.510583847491,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="361.730412967864,159.431891768985">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124.784343736359,0"
+              Start="0,0"
+              End="117.284343736359,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="117.284343736359,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="383.420594007784,438.79210459782">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.5496133569368,15.6435209235248"
+              Start="0,0"
+              End="50.0496133569368,15.6435209235248">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="24.7748066784688,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.7748066784688,0"
+                    Point2="28.7748066784688,0"
+                    Point3="28.7748066784688,4" />
+                  <mssgle:LineSegment
+                    End="28.7748066784688,11.6435209235248" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.7748066784688,11.6435209235248"
+                    Point2="28.7748066784688,15.6435209235248"
+                    Point3="32.7748066784688,15.6435209235248" />
+                  <mssgle:LineSegment
+                    End="50.0496133569368,15.6435209235248" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="406.660397605603,541.822688700323">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.436402968573,11.118526819712"
+              Start="0,0"
+              End="55.936402968573,11.118526819712">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.7182014842865,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.7182014842865,0"
+                    Point2="31.7182014842865,0"
+                    Point3="31.7182014842865,4" />
+                  <mssgle:LineSegment
+                    End="31.7182014842865,7.11852681971197" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.7182014842865,7.11852681971197"
+                    Point2="31.7182014842865,11.118526819712"
+                    Point3="35.7182014842865,11.118526819712" />
+                  <mssgle:LineSegment
+                    End="55.936402968573,11.118526819712" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="644.096800574173,573.941215520035">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-355.90473149387,44.4381903971874"
+              Start="0,0"
+              End="-355.90473149387,36.9381903971874">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4279986943626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.4279986943626"
+                    Point2="0,26.4279986943626"
+                    Point3="-4,26.4279986943626" />
+                  <mssgle:LineSegment
+                    End="-351.90473149387,26.4279986943626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-351.90473149387,26.4279986943626"
+                    Point2="-355.90473149387,26.4279986943626"
+                    Point3="-355.90473149387,30.4279986943626" />
+                  <mssgle:LineSegment
+                    End="-355.90473149387,36.9381903971874" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 13]"
+          TopLeft="622.489064676554,657.614333950474">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-302.675497191177,60.7502082699866"
+              Start="0,0"
+              End="-302.675497191177,53.2502082699866">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.3751041349933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.3751041349933"
+                    Point2="0,30.3751041349933"
+                    Point3="-4,30.3751041349933" />
+                  <mssgle:LineSegment
+                    End="-298.675497191177,30.3751041349933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-298.675497191177,30.3751041349933"
+                    Point2="-302.675497191177,30.3751041349933"
+                    Point3="-302.675497191177,34.3751041349933" />
+                  <mssgle:LineSegment
+                    End="-302.675497191177,53.2502082699866" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 14]"
+          TopLeft="431.313567485384,739.083600450426">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45.2614432442006,0"
+              Start="0,0"
+              End="37.7614432442006,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37.7614432442006,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="384.829116445654,239.113674969984">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77.3244700129726,0"
+              Start="0,0"
+              End="69.8244700129726,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="69.8244700129726,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="632.653586458624,259.463573931155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-344.793867367209,61.2444594639106"
+              Start="0,0"
+              End="-344.793867367209,53.7444594639106">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.6222297319553" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.6222297319553"
+                    Point2="0,30.6222297319553"
+                    Point3="-4,30.6222297319553" />
+                  <mssgle:LineSegment
+                    End="-340.793867367209,30.6222297319553" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-340.793867367209,30.6222297319553"
+                    Point2="-344.793867367209,30.6222297319553"
+                    Point3="-344.793867367209,34.6222297319553" />
+                  <mssgle:LineSegment
+                    End="-344.793867367209,53.7444594639106" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="607.067501705683,366.698527863052">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-316.1469076979,51.0935767347679"
+              Start="0,0"
+              End="-316.1469076979,43.5935767347679">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.546788367384" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.546788367384"
+                    Point2="0,25.546788367384"
+                    Point3="-4,25.546788367384" />
+                  <mssgle:LineSegment
+                    End="-312.1469076979,25.546788367384" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-312.1469076979,25.546788367384"
+                    Point2="-316.1469076979,25.546788367384"
+                    Point3="-316.1469076979,29.546788367384" />
+                  <mssgle:LineSegment
+                    End="-316.1469076979,43.5935767347679" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="608.470207364713,475.435625521344">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-304.809809759119,45.3870631789799"
+              Start="0,0"
+              End="-304.809809759119,37.8870631789799">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.69353158949" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.69353158949"
+                    Point2="0,22.69353158949"
+                    Point3="-4,22.69353158949" />
+                  <mssgle:LineSegment
+                    End="-300.809809759119,22.69353158949" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-300.809809759119,22.69353158949"
+                    Point2="-304.809809759119,22.69353158949"
+                    Point3="-304.809809759119,26.69353158949" />
+                  <mssgle:LineSegment
+                    End="-304.809809759119,37.8870631789799" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="406.858735746973,637.996869933848">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67.6303289295856,0"
+              Start="0,0"
+              End="60.1303289295856,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="60.1303289295856,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="625.213245539654,93.1190710319383">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-355.482832571788,44.6529454879764"
+              Start="0,0"
+              End="-355.482832571788,37.1529454879764">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.3264727439882" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.3264727439882"
+                    Point2="0,22.3264727439882"
+                    Point3="-4,22.3264727439882" />
+                  <mssgle:LineSegment
+                    End="-351.482832571788,22.3264727439882" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-351.482832571788,22.3264727439882"
+                    Point2="-355.482832571788,22.3264727439882"
+                    Point3="-355.482832571788,26.3264727439882" />
+                  <mssgle:LineSegment
+                    End="-355.482832571788,37.1529454879764" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="638.514756704223,181.091767018056">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-354.685640258569,37.672008990756"
+              Start="0,0"
+              End="-354.685640258569,30.172008990756">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.8360044953779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.8360044953779"
+                    Point2="0,18.8360044953779"
+                    Point3="-4,18.8360044953779" />
+                  <mssgle:LineSegment
+                    End="-350.685640258569,18.8360044953779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-350.685640258569,18.8360044953779"
+                    Point2="-354.685640258569,18.8360044953779"
+                    Point3="-354.685640258569,22.8360044953779" />
+                  <mssgle:LineSegment
+                    End="-354.685640258569,30.172008990756" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="379.859719091424,343.703280629058">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77.2077826142622,0"
+              Start="0,0"
+              End="69.7077826142622,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="69.7077826142622,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1161 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/28/2014 11:42:16 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="CAES-FXDG9W1"
+  DTS:CreatorName="AESDEAN\taylor"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{7AAE4F54-B575-4067-8F9C-CAA3BFA1248C}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.6020.0"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Export_vVendorAddresses_sync"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{A70460F5-C269-49B0-BD31-E90C65D78624}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{12A3A8F0-054F-4841-9BCC-DD0B1972FA34}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=qb5fm1u0eb.database.windows.net;User ID=opp;Initial Catalog=PrePurchasing;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=false;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAATXicqTPLEu3EPkDa3jL2AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD/l6Z3nsB2JACGB2YfU6HcAAAAAASAAACgAAAAEAAAAC9Qg8XSsPExk0GXmHhBoFA4AAAAsKxOLZ8t4HHzvwt0t8oCZzInzr6vGPCIEjR+7c28TFXODqHQ9BjDNXsClrLZB/t2W5vN2kAIJz4UAAAAIfAfDT5etwcGP5kDo/IdOM/D4/c</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{78E8710D-9B63-4F33-B5AD-3658AEC13F8E}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=tinnytim;Initial Catalog=PrePurchasingLookups;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:DTSID="{75D18371-150B-43E4-A0FB-3F0DAF4D9DF0}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - vVendorAddresses_sync"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[vVendorAddresses_sync]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[Id]"
+                      cachedDataType="i8"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[VendorId]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="VendorId"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[VendorId]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[VendorId]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[TypeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="TypeCode"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[TypeCode]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[TypeCode]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[AddressType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="AddressType"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[AddressType]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[AddressType]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[Line1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="Line1"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Line1]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Line1]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[Line2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="Line2"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Line2]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Line2]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[Line3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="Line3"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Line3]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Line3]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[City]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[State]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[Zip]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Zip"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Zip]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Zip]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[CountryCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="CountryCode"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[CountryCode]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[CountryCode]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[PhoneNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="PhoneNumber"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[PhoneNumber]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[PhoneNumber]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[FaxNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="FaxNumber"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[FaxNumber]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[FaxNumber]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="90"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[Url]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Url"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Url]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Url]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[IsDefault]"
+                      cachedDataType="bool"
+                      cachedName="IsDefault"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[IsDefault]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[IsDefault]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[IsActive]"
+                      cachedDataType="bool"
+                      cachedName="IsActive"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[IsActive]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[IsActive]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[LastUpdateDate]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="LastUpdateDate"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[LastUpdateDate]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[LastUpdateDate]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[UpdateHash]"
+                      cachedDataType="bytes"
+                      cachedLength="16"
+                      cachedName="UpdateHash"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[UpdateHash]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[UpdateHash]" />
+                    <inputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].Columns[DetailId]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="DetailId"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[DetailId]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[DetailId]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Id]"
+                      dataType="i8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[VendorId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="VendorId" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[TypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[AddressType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="AddressType" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Line1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="Line1" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Line2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="Line2" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Line3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="Line3" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Zip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Zip" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[CountryCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="CountryCode" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[PhoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="PhoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[FaxNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FaxNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[Url]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Url" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[IsDefault]"
+                      dataType="bool"
+                      name="IsDefault" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[IsActive]"
+                      dataType="bool"
+                      name="IsActive" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[LastUpdateDate]"
+                      dataType="dbTimeStamp2"
+                      name="LastUpdateDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[UpdateHash]"
+                      dataType="bytes"
+                      length="16"
+                      name="UpdateHash" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input].ExternalColumns[DetailId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="DetailId" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - vVendorAddresses"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[vVendorAddresses]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[VendorId]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[VendorId]"
+                      length="10"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[VendorId]"
+                      name="VendorId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[TypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[TypeCode]"
+                      length="4"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[TypeCode]"
+                      name="TypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[AddressType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[AddressType]"
+                      length="4"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[AddressType]"
+                      name="AddressType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Line1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Line1]"
+                      length="45"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Line1]"
+                      name="Line1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Line2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Line2]"
+                      length="45"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Line2]"
+                      name="Line2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Line3]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Line3]"
+                      length="45"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Line3]"
+                      name="Line3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="45"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="2"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Zip]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Zip]"
+                      length="20"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Zip]"
+                      name="Zip"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[CountryCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[CountryCode]"
+                      length="2"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[CountryCode]"
+                      name="CountryCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[PhoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumber]"
+                      length="40"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[PhoneNumber]"
+                      name="PhoneNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[FaxNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[FaxNumber]"
+                      length="40"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[FaxNumber]"
+                      name="FaxNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      length="90"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Url]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Url]"
+                      length="200"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[Url]"
+                      name="Url"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[IsDefault]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[IsDefault]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[IsDefault]"
+                      name="IsDefault"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[IsActive]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[IsActive]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[IsActive]"
+                      name="IsActive"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[LastUpdateDate]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[LastUpdateDate]"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[LastUpdateDate]"
+                      name="LastUpdateDate"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[UpdateHash]"
+                      dataType="bytes"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[UpdateHash]"
+                      length="16"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[UpdateHash]"
+                      name="UpdateHash"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[DetailId]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[DetailId]"
+                      length="4"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].Columns[DetailId]"
+                      name="DetailId"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      dataType="i8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[VendorId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="VendorId" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[TypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[AddressType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="AddressType" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Line1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="Line1" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Line2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="Line2" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Line3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="Line3" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Zip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Zip" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[CountryCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="CountryCode" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="PhoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[FaxNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="FaxNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[Url]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Url" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[IsDefault]"
+                      dataType="bool"
+                      name="IsDefault" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[IsActive]"
+                      dataType="bool"
+                      name="IsActive" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[LastUpdateDate]"
+                      dataType="dbTimeStamp2"
+                      name="LastUpdateDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[UpdateHash]"
+                      dataType="bytes"
+                      length="16"
+                      name="UpdateHash" />
+                    <externalMetadataColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output].ExternalColumns[DetailId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="DetailId" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      dataType="i8"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[VendorId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[VendorId]"
+                      name="VendorId" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[TypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[TypeCode]"
+                      name="TypeCode" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[DetailId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[DetailId]"
+                      name="DetailId" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[AddressType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[AddressType]"
+                      name="AddressType" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Line1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Line1]"
+                      name="Line1" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Line2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Line2]"
+                      name="Line2" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Line3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Line3]"
+                      name="Line3" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Zip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Zip]"
+                      name="Zip" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[CountryCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[CountryCode]"
+                      name="CountryCode" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[PhoneNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[PhoneNumber]"
+                      name="PhoneNumber" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[FaxNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[FaxNumber]"
+                      name="FaxNumber" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Url]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[Url]"
+                      name="Url" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[IsDefault]"
+                      dataType="bool"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[IsDefault]"
+                      name="IsDefault" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[IsActive]"
+                      dataType="bool"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[IsActive]"
+                      name="IsActive" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[LastUpdateDate]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[LastUpdateDate]"
+                      name="LastUpdateDate"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[UpdateHash]"
+                      dataType="bytes"
+                      length="16"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[UpdateHash]"
+                      name="UpdateHash" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync.Paths[OLE DB Source Output]"
+              endId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table vVendorAddresses_sync"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:DTSID="{6E437A85-9285-4386-9647-1474DBB721F6}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table vVendorAddresses_sync"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{12A3A8F0-054F-4841-9BCC-DD0B1972FA34}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[vVendorAddresses_sync]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{AD9A4CF7-C307-481B-80F3-745260FE5003\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{AD9A4CF7-C307-481B-80F3-745260FE5003}"
+      DTS:From="Package\Truncate table vVendorAddresses_sync"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{AD9A4CF7-C307-481B-80F3-745260FE5003}"
+      DTS:To="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="394,42"
+          Id="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync"
+          TopLeft="45.1397436920336,194.52414102526" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Truncate table vVendorAddresses_sync"
+          TopLeft="132.933311891079,69.2004164020337" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{AD9A4CF7-C307-481B-80F3-745260FE5003\}]"
+          TopLeft="242.036527791556,111.200416402034">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,83.3237246232267"
+              Start="0,0"
+              End="0,75.8237246232267">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.8237246232267" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses"
+          TopLeft="29.5,5.5" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync"
+          TopLeft="5.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync.Paths[OLE DB Source Output]"
+          TopLeft="134.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Destination - vVendorAddresses_sync">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Export tinnytim vVendorAddresses to OPP vVendorAddresses_sync\Source - vVendorAddresses">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

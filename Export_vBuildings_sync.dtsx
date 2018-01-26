@@ -1,0 +1,744 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/28/2014 12:30:55 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="CAES-FXDG9W1"
+  DTS:CreatorName="AESDEAN\taylor"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{F50F884C-A401-46A3-A85D-B6AD36C564FB}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.6020.0"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Export_vBuildings_sync"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{35A88519-8975-47B8-8A60-061FA6B4A222}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B2601E9C-2FA5-4466-A987-8CCD7A35FA84}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=qb5fm1u0eb.database.windows.net;User ID=opp;Initial Catalog=PrePurchasing;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=false;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAATXicqTPLEu3EPkDa3jL2AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA5U0cluR2QlGg7/vVebwLMAAAAAASAAACgAAAAEAAAADd74otfE4yYbG9xR7hjBwI4AAAAs+FnEtn7JbAs7HYkEduv+RjkOXowkXmM42+DPkf2ynwfEWaxm9cgMXloYk0cwt/nBJThz3uB914UAAAARXT2M25O9m0b1ay3ebNWJ7SGujU</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{45A9F9DE-0F20-49F2-91B5-D5DB7052D3FE}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=tinnytim;Initial Catalog=PrePurchasingLookups;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:DTSID="{D6F2F18B-0066-4073-B3B6-1573E2269916}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Export from tinnytim vBuildings to OPP vBuildings_sync"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - vBuildings_sync"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[vBuildings_sync]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].Columns[Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].Columns[CampusCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="CampusCode"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[CampusCode]"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[CampusCode]" />
+                    <inputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].Columns[BuildingCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="BuildingCode"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[BuildingCode]"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[BuildingCode]" />
+                    <inputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].Columns[CampusName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="CampusName"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[CampusName]"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[CampusName]" />
+                    <inputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].Columns[CampusShortName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="CampusShortName"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[CampusShortName]"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[CampusShortName]" />
+                    <inputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].Columns[CampusTypeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="CampusTypeCode"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[CampusTypeCode]"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[CampusTypeCode]" />
+                    <inputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].Columns[BuildingName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="BuildingName"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[BuildingName]"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[BuildingName]" />
+                    <inputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].Columns[LastUpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LastUpdateDate"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[LastUpdateDate]"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[LastUpdateDate]" />
+                    <inputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].Columns[IsActive]"
+                      cachedDataType="bool"
+                      cachedName="IsActive"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[IsActive]"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[IsActive]" />
+                    <inputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].Columns[UpdateHash]"
+                      cachedDataType="bytes"
+                      cachedLength="16"
+                      cachedName="UpdateHash"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[UpdateHash]"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[UpdateHash]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[CampusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="CampusCode" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[BuildingCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="BuildingCode" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[CampusName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="CampusName" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[CampusShortName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="CampusShortName" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[CampusTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="CampusTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[BuildingName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="BuildingName" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[LastUpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="LastUpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[IsActive]"
+                      dataType="bool"
+                      name="IsActive" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input].ExternalColumns[UpdateHash]"
+                      dataType="bytes"
+                      length="16"
+                      name="UpdateHash" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - vBuildings"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[vBuildings]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[Id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      length="10"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[CampusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[CampusCode]"
+                      length="2"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[CampusCode]"
+                      name="CampusCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[BuildingCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[BuildingCode]"
+                      length="5"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[BuildingCode]"
+                      name="BuildingCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[CampusName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[CampusName]"
+                      length="40"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[CampusName]"
+                      name="CampusName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[CampusShortName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[CampusShortName]"
+                      length="12"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[CampusShortName]"
+                      name="CampusShortName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[CampusTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[CampusTypeCode]"
+                      length="1"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[CampusTypeCode]"
+                      name="CampusTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[BuildingName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[BuildingName]"
+                      length="80"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[BuildingName]"
+                      name="BuildingName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[LastUpdateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[LastUpdateDate]"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[LastUpdateDate]"
+                      name="LastUpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[IsActive]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[IsActive]"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[IsActive]"
+                      name="IsActive"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[UpdateHash]"
+                      dataType="bytes"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[UpdateHash]"
+                      length="16"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].Columns[UpdateHash]"
+                      name="UpdateHash"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[CampusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="CampusCode" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[BuildingCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="BuildingCode" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[CampusName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="CampusName" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[CampusShortName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="CampusShortName" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[CampusTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="CampusTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[BuildingName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="BuildingName" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[LastUpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="LastUpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[IsActive]"
+                      dataType="bool"
+                      name="IsActive" />
+                    <externalMetadataColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output].ExternalColumns[UpdateHash]"
+                      dataType="bytes"
+                      length="16"
+                      name="UpdateHash" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[CampusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[CampusCode]"
+                      name="CampusCode" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[BuildingCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[BuildingCode]"
+                      name="BuildingCode" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[CampusName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[CampusName]"
+                      name="CampusName" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[CampusShortName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[CampusShortName]"
+                      name="CampusShortName" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[CampusTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[CampusTypeCode]"
+                      name="CampusTypeCode" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[BuildingName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[BuildingName]"
+                      name="BuildingName" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[LastUpdateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[LastUpdateDate]"
+                      name="LastUpdateDate" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[IsActive]"
+                      dataType="bool"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[IsActive]"
+                      name="IsActive" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[UpdateHash]"
+                      dataType="bytes"
+                      length="16"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[UpdateHash]"
+                      name="UpdateHash" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync.Paths[OLE DB Source Output]"
+              endId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table vBuildings"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:DTSID="{619F229B-4E71-4746-9E4A-CDBCFEC3F78E}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table vBuildings"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B2601E9C-2FA5-4466-A987-8CCD7A35FA84}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[vBuildings_sync]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{B6046471-1DB4-470E-B552-D1441EC64BA5\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{B6046471-1DB4-470E-B552-D1441EC64BA5}"
+      DTS:From="Package\Truncate table vBuildings"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{B6046471-1DB4-470E-B552-D1441EC64BA5}"
+      DTS:To="Package\Export from tinnytim vBuildings to OPP vBuildings_sync" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="342,42"
+          Id="Package\Export from tinnytim vBuildings to OPP vBuildings_sync"
+          TopLeft="20.5,107.5" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Truncate table vBuildings"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{B6046471-1DB4-470E-B552-D1441EC64BA5\}]"
+          TopLeft="105.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86,60"
+              Start="0,0"
+              End="86,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="82,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82,30"
+                    Point2="86,30"
+                    Point3="86,34" />
+                  <mssgle:LineSegment
+                    End="86,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Export from tinnytim vBuildings to OPP vBuildings_sync">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Source - vBuildings"
+          TopLeft="29.5,5.5" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\Export from tinnytim vBuildings to OPP vBuildings_sync\Destination - vBuildings_sync"
+          TopLeft="5.50000000000001,107.5" />
+        <EdgeLayout
+          Id="Package\Export from tinnytim vBuildings to OPP vBuildings_sync.Paths[OLE DB Source Output]"
+          TopLeft="115,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
